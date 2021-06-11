@@ -58,6 +58,7 @@
   padding-top: 32px;
   padding-bottom: 32px;
   display: block;
+  position: relative;
 }
 .nav-list a:hover,
 .nav-list a:focus {
@@ -66,6 +67,16 @@
 /* current подсветка текущей страницы */
 .nav-list .nav-item .current {
   color: var(--color-accent);
+}
+.current::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  position: absolute;
+  bottom: 0;
+  background-color: var(--color-accent);
 }
 
 .mail-list {
@@ -189,6 +200,26 @@ button {
   font-size: 36px;
   line-height: 1.172;
   text-align: center;
+}
+.busyness-list {
+  position: relative;
+}
+.busy-title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  color: rgba(255, 255, 255, 1);
+  background: rgba(47, 48, 58, 0.8);
+}
+.busy-title .title {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 27px;
+  font-size: 14px;
+  line-height: 1.172;
 }
 .section-staff {
   background: var(--background-section-2);
@@ -356,6 +387,29 @@ button {
 .portfolio-item:nth-last-child(-n + 3) {
   margin-bottom: 0;
 }
+.img-box {
+  position: relative;
+}
+.hower-wrapper p {
+  color: rgba(255, 255, 255, 1);
+  font-size: 18px;
+  line-height: 1.56;
+  padding: 63px 24px;
+}
+.hower-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: '';
+  top: 0;
+  background: rgba(33, 150, 243, 0.9);
+  display: flex;
+  opacity: 0.2;
+}
+
+.hower-wrapper:hover {
+  opacity: 1;
+}
 .port-content {
   padding: 20px 24px;
 }
@@ -429,4 +483,41 @@ footer .container {
 }
 .foter-ikons .ikons-list {
   padding: 0;
+}
+
+/* modal window */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+}
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 528px;
+  height: 581px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 3px;
+  box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
+}
+.button-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 30px;
+  height: 30px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }
